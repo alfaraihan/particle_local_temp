@@ -143,7 +143,3 @@ def local_par_temp(data, saveto, cutoff=5.1, units="metal", mass=[28.0855,15.999
         print("Total time : ", datetime.timedelta(seconds=int(tstop-tstart)), "(ಠ益ಠ)")
     
     return gTi
-
-data="../10nm/1200/col.*"
-saveto="10nm/1200/temp."
-gTi=local_par_temp(data, saveto, units="real")
