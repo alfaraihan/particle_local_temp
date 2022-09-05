@@ -7,6 +7,9 @@ $$T_a=\frac{1}{3 N k_B}* \sum_{i=1}^{N} m_i v_i^2 = 1 $$
 
 where $N$ is the number of neighboring atoms inside the sphere, $k_B$ is Boltzmann's constant, and $m_i$ is the mass of the corresponding atom. The thermal velocit, $v_i$, of atom $i$ is defined as the atom velocity subtracted by the center-of-mass velocity of the sphere.
 
+This program support multiple cores uses. 
+Tested using mpirun on 64 core system
+
 
 ## How to call function
 
@@ -48,4 +51,7 @@ saveto="10nm/1200/temp."
 Ti=local_par_temp(data, saveto, units="real", mass=[28.0855,15.9994,18.0153,15.9994])
 ```
 
+
+## Algorithm
+![alt text](https://github.com/alfaraihan/particle_local_temp/particle_local_temp.png)
 
