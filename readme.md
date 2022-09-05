@@ -26,7 +26,7 @@ Directory of input data, that directly pass to the ovito.io import_file function
 Directory of where you want to save exported data. There are 2 kind of exported data, which is: xyz data and npy data. npy data is numpy array data which is the array of particel local temperature. xyz data format contains : particle type, X, Y, Z position, temperature. 
 
 ### cutoff
-Parameter for variable $R_cut$, which is the cutoff radius of neighbor finder. Neighbor of a particle is searched using ovito modifiers, CutoffNeighborFinder.
+Parameter for variable $R_{cut}$, which is the cutoff radius of neighbor finder. Neighbor of a particle is searched using ovito modifiers, CutoffNeighborFinder.
 <br>default = 5.1
 
 ### units
