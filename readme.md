@@ -27,18 +27,18 @@ Directory of where you want to save exported data. There are 2 kind of exported 
 
 ### cutoff
 Parameter for variable $R_cut$, which is the cutoff radius of neighbor finder. Neighbor of a particle is searched using ovito modifiers, CutoffNeighborFinder.
-default = 5.1
+<br>default = 5.1
 
 ### units
 Units that are used in simulation. Units type is based on LAMMPS software, that can be found here https://docs.lammps.org/units.html. For example, metal units has mass in grams/mole, and velocity in angstrom/picosecond. This program use only the velocity and mass of particles. All the units are converted into SI units, so the final temperatre result is in Kelvin. 
-default = metal
+<br>default = metal
 
 ### mass
 Input array of particle mass, with the units according to what has been determined previously. Index of array correspond to mass of each atoms respectively. For example if atoms in the simulation are Si; O; H2O; O, then the input array is [28.0855,15.9994,18.0153,15.9994].
 
 ### npy
 If true, save the file into npy
-default = True
+<br>default = True
 
 
 ## Example
