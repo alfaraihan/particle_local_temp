@@ -52,6 +52,4 @@ Ti=local_par_temp(data, saveto, units="real", mass=[28.0855,15.9994,18.0153,15.9
 ```
 
 
-## Algorithm
-![alt text](https://github.com/alfaraihan/particle_local_temp/particle_local_temp.png)
 
