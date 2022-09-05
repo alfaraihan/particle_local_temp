@@ -1,5 +1,3 @@
-%%writefile temp.py
-
 from ovito import data
 from ovito.io import import_file
 from ovito.data import CutoffNeighborFinder
@@ -18,15 +16,17 @@ def particle_mass(ptype, mass):
 def units_conv(units):
     if units=="metal":
         v_conv=1e02
+        m_conv=1.66054e-27
     if units=="real":
         v_conv=1e05
-    return v_conv
+        m_conv=1.66054e-27
+    return v_conv, m_conv
     
 
 def local_par_temp(data, saveto, cutoff=5.1, units="metal", mass=[28.0855,15.999,1.00794,15.999], npy=True):
     #var
     cutoff=cutoff
-    v_conv=units_conv(units)
+    v_conv, m_conv=units_conv(units)
 
     # MPI
     comm=MPI.COMM_WORLD
@@ -39,7 +39,7 @@ def local_par_temp(data, saveto, cutoff=5.1, units="metal", mass=[28.0855,15.999
     openfile=data
     savefile=saveto
     
-    if rank==0:print("Local Partilce Temperature \nAlfaridzi, 31 Aug 22 \nUsing ", size, "processors")
+    if rank==0:print("Local Partilce Temperature Finder \nUsing ", size, "processors")
 
     pipeline=import_file(openfile)
 
@@ -105,7 +105,7 @@ def local_par_temp(data, saveto, cutoff=5.1, units="metal", mass=[28.0855,15.999
 
                             for neigh in finder.find(index):
 
-                                m = particle_mass(ptypes[neigh.index], mass)
+                                m = particle_mass(ptypes[neigh.index], mass)*m_conv
 
                                 vi= v[neigh.index]*v_conv
 
@@ -143,3 +143,7 @@ def local_par_temp(data, saveto, cutoff=5.1, units="metal", mass=[28.0855,15.999
         print("Total time : ", datetime.timedelta(seconds=int(tstop-tstart)), "(ಠ益ಠ)")
     
     return gTi
+
+data="../10nm/1200/col.*"
+saveto="10nm/1200/temp."
+gTi=local_par_temp(data, saveto, units="real")
